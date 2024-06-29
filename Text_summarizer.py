@@ -1,6 +1,7 @@
 import string
 import re
 import json
+import os
 import numpy as np
 from Lemmatization.custom_lemmatizer import telugu_custom_lemmatizer
 from Lemmatization.replacing_original_lemma import replacing_original_lemma
@@ -13,9 +14,14 @@ output_file = open(output_file_path, 'w', encoding='utf-8')
 
 with open('input_text.json', 'r', encoding='utf-8') as input_file:
     input_data = json.load(input_file)
+# Get the path to the current script file
+current_dir = os.path.dirname(__file__)
 
-with open("E:\\Projects\\nlpend\\Stop_Words\\c_jsonformat.json", 'r', encoding='utf-8') as stop_words_file:
+# Construct the path to c_jsonformat.json relative to the current script file
+stop_words_path = os.path.join(current_dir, 'Stop_Words', 'c_jsonformat.json')
 
+# Load stopwords from c_jsonformat.json
+with open(stop_words_path, 'r', encoding='utf-8') as stop_words_file:
     stop_words_data = json.load(stop_words_file)
 
 InputText = input_data["text"]
