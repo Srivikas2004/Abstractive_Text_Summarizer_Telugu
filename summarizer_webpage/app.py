@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
+import os
 
 app = Flask(__name__)
 
-# Path to your JSON file
-json_file_path = 'D:\\sem 5\\NLP\\project\\NLP_END\\NLP_END\\input_text.json'
+# Define paths relative to the current script's directory
+current_dir = os.path.dirname(__file__)
+json_file_path = os.path.join(current_dir, '../input_text.json')
 
 def load_data():
     try:
