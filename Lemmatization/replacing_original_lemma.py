@@ -1,7 +1,10 @@
+import os
 def replacing_original_lemma(input_word):
-    # Define the path to the modified Telugu lemma file
-    file_path = "E:\\Projects\\nlpend\\Lemmatization\\preprocessed_source_lemma.txt"
+   # Get the directory of the current script
+    current_dir = os.path.dirname(__file__)
 
+    # Define the path to the modified Telugu lemma file
+    file_path = os.path.join(current_dir, "preprocessed_source_lemma.txt")
     # Initialize a dictionary to store word replacements
     word_replacements = {}
 
