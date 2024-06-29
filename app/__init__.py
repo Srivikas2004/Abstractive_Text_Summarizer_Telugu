@@ -2,10 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for
 from Text_summarizer import summarize_with_disambiguation
 import json
 import subprocess
+import os
 
 app = Flask(__name__)
 
-json_file_path = 'E:\\Projects\\nlpend\\input_text.json'
+# Define paths relative to the current script's directory
+current_dir = os.path.dirname(__file__)
+json_file_path = os.path.join(current_dir, '../input_text.json')
+python_file_path = os.path.join(current_dir, '../../Text_summarizer.py')
 
 def load_data():
     try:
@@ -18,7 +22,7 @@ def load_data():
 def save_data(data):
     with open(json_file_path, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
-python_file_path = 'E:\\Projects\\nlpend\\Text_summarizer.py'  # Update this with the actual path
+
 
 @app.route('/')
 def index():
