@@ -44,4 +44,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./  # Adjust to the directory where your Flask app files are
+        publish_dir: app/templates   # Adjust to the directory where your Flask app files are
